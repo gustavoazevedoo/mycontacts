@@ -16,9 +16,9 @@ export default function useErrors() {
     ]);
   }
 
-  function removeError(fieldname) {
+  function removeError(fieldName) {
     setErrors((prevState) => prevState.filter(
-      (error) => error.field !== fieldname,
+      (error) => error.field !== fieldName,
     ));
   }
 
