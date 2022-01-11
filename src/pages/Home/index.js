@@ -81,9 +81,9 @@ export default function Home() {
           hasError
             ? 'flex-end'
             : (
-              contacts.length === 0
-                ? 'center'
-                : 'space-between'
+              contacts.length > 0
+                ? 'space-between'
+                : 'center'
             )
         }
       >
@@ -113,7 +113,7 @@ export default function Home() {
 
       {!hasError && (
         <>
-          {contacts.length === 0 && (
+          {(contacts.length < 1 && !isLoading) && (
             <EmptyListContainer>
               <img src={emptyBox} alt="Empty box" />
 
