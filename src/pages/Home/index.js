@@ -124,7 +124,6 @@ export default function Home() {
                 Clique no botão <strong>”Novo contato”</strong> à cima
                 para cadastrar o seu primeiro!
               </p>
-
             </EmptyListContainer>
           )}
 
@@ -139,12 +138,12 @@ export default function Home() {
           )}
 
           {filteredContacts.length > 0 && (
-          <ListHeader orderBy={orderBy}>
-            <button type="button" onClick={handleToggleOrderBy}>
-              <span>Nome</span>
-              <img src={arrow} alt="arrow" />
-            </button>
-          </ListHeader>
+            <ListHeader orderBy={orderBy}>
+              <button type="button" onClick={handleToggleOrderBy}>
+                <span>Nome</span>
+                <img src={arrow} alt="arrow" />
+              </button>
+            </ListHeader>
           )}
 
           {filteredContacts.map((contact) => (
@@ -169,7 +168,6 @@ export default function Home() {
               </div>
             </Card>
           ))}
-
         </>
       )}
     </Container>

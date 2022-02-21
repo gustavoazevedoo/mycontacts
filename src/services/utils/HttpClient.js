@@ -13,7 +13,7 @@ class HttpClient {
 
     let body = null;
     const contentType = response.headers.get('Content-Type');
-    if (contentType.includes('application/json')) {
+    if (contentType.includes('application/json')) { // Se não for um application/json, ele não posso usar o método .json pra coverter e da um erro
       body = await response.json();
     }
 
