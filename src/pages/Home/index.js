@@ -8,7 +8,7 @@ import {
   Card, Container, InputSearchContainer, Header, ListHeader,
   ErrorContainer, EmptyListContainer, SearchNotFoundContainer,
 } from './styles';
-import { Button } from '../../components/Button';
+import Button from '../../components/Button';
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
