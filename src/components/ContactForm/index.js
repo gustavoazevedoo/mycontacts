@@ -21,7 +21,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
   const [categoryId, setCategoryId] = useState('');
   const [categories, setCategories] = useState([]);
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
-  const [isSubmitting, setIsSubmittinng] = useState(true);
+  const [isSubmitting, setIsSubmittinng] = useState(false);
   const {
     errors,
     setError,
