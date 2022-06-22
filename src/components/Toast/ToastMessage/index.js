@@ -9,7 +9,7 @@ export default function ToastMessage({ text, type }) {
   return (
     <Container type={type}>
       {type === 'success' && <img src={checkCircleIcon} alt="Check" /> }
-      {type === 'error' && <img src={xCircleIcon} alt="X" /> }
+      {type === 'danger' && <img src={xCircleIcon} alt="X" /> }
       <strong>{text}</strong>
     </Container>
   );
@@ -17,7 +17,7 @@ export default function ToastMessage({ text, type }) {
 
 ToastMessage.propTypes = {
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['success', 'error', 'default']),
+  type: PropTypes.oneOf(['success', 'danger', 'default']),
 };
 
 ToastMessage.defaultProps = {
