@@ -33,4 +33,6 @@ export const Container = styled.div`
   img {
     margin-right: 8px;
   }
+
+  cursor: pointer;
 `;
