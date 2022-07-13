@@ -13,7 +13,7 @@ export default function Button({
   return (
     <StyledButton
       type={type}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       danger={danger}
       onClick={onClick}
     >

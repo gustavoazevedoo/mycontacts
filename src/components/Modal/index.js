@@ -6,6 +6,8 @@ import { Container, Footer, Overlay } from './styles';
 
 export default function Modal({
   danger,
+  visible,
+  isLoading,
   title,
   children,
   cancelLabel,
@@ -13,6 +15,10 @@ export default function Modal({
   onCancel,
   onConfirm,
 }) {
+  if (!visible) {
+    return null;
+  }
+
   return ReactDOM.createPortal(
     <Overlay>
       <Container danger={danger}>
@@ -27,13 +33,16 @@ export default function Modal({
             type="button"
             className="cancel-button"
             onClick={onCancel}
+            disabled={isLoading}
           >
             {cancelLabel}
           </button>
+
           <Button
             type="button"
-            onClick={onConfirm}
             danger={danger}
+            onClick={onConfirm}
+            isLoading={isLoading}
           >
             {confirmLabel}
           </Button>
@@ -46,6 +55,8 @@ export default function Modal({
 
 Modal.propTypes = {
   danger: PropTypes.bool,
+  visible: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
   title: PropTypes.string.isRequired,
   cancelLabel: PropTypes.string,
   confirmLabel: PropTypes.string,
@@ -55,6 +66,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   danger: false,
+  isLoading: false,
   cancelLabel: 'Cancelar',
   confirmLabel: 'Confirmar',
 };
