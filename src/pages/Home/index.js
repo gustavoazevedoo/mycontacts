@@ -17,6 +17,8 @@ import emptyBox from '../../assets/images/empty-box.svg';
 import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import Loader from '../../components/Loader';
+import Modal from '../../components/Modal';
+
 import ContactsService from '../../services/ContactsService';
 
 export default function Home() {
@@ -66,6 +68,19 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        danger
+        title="Titulo do modal"
+        confirmLabel="Deletar"
+        onCancel={() => alert('Cancel Button')}
+        onConfirm={() => alert('Confirm Button')}
+      >
+        <h1>oiiooi</h1>
+        <h2>ijijdi</h2>
+        <p>sidudhus</p>
+        <strong>uhdfudhfu</strong>
+      </Modal>
 
       {(contacts.length > 0 && !hasError) && (
         <InputSearchContainer>
