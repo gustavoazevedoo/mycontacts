@@ -1,28 +1,32 @@
-import PropTypes from 'prop-types';
 import {
   forwardRef, useEffect, useImperativeHandle, useState,
 } from 'react';
 
+import PropTypes from 'prop-types';
+
+import FormGroup from '../FormGroup';
+import Button from '../Button';
+import Spinner from '../Spinner';
+import { Input } from '../Input';
+import { Select } from '../Select';
+
+import CategoriesService from '../../services/CategoriesService';
+
 import isEmailValid from '../../utils/isEmailValid';
 import formatPhone from '../../utils/formatPhone';
 
-import FormGroup from '../FormGroup';
-
-import { Input } from '../Input';
-import { Select } from '../Select';
-import { Form, ButtonContainer } from './styles';
 import useErrors from '../../hooks/useErrors';
-import CategoriesService from '../../services/CategoriesService';
-import Button from '../Button';
-import Spinner from '../Spinner';
+import useSafeAsyncState from '../../hooks/useSafeAsyncState';
+
+import { Form, ButtonContainer } from './styles';
 
 const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [categoryId, setCategoryId] = useState('');
-  const [categories, setCategories] = useState([]);
-  const [isLoadingCategories, setIsLoadingCategories] = useState(true);
+  const [categories, setCategories] = useSafeAsyncState([]);
+  const [isLoadingCategories, setIsLoadingCategories] = useSafeAsyncState(true);
   const [isSubmitting, setIsSubmittinng] = useState(false);
   const {
     errors,
@@ -60,7 +64,7 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
     }
 
     loadCategories();
-  }, []);
+  }, [setCategories, setIsLoadingCategories]);
 
   function handleNameChange(event) {
     setName(event.target.value);
